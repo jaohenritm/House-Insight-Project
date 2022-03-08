@@ -18,7 +18,7 @@ that the company would spend atleast 10% of the total value of the house in refo
 
 Visualization: (https://house-insights-deploy.herokuapp.com/)
 
-___
+
 ## 1. House Rocket
 
 ### 1.1 Business Context
@@ -139,9 +139,22 @@ the next step was to verify if they were true or not.
 | For every bathroom, the house price raises 10%. | False | Every bathroom added to the property, makes it's price goes 41% higher in average. |
 | Every 1 level in condition, the price raises by 10%. | False |  The price difference between houses with 1 level difference to another in average is 18%. |
  
+## 4 Financial Results
+
+The objective of this project was to propose a list of real estates with options for purchase, sell and the maximum profit that could be obtained if all these
+transactions occurs. So, let's see the results that House Rocket would achieve if the company follows every instruction.
+
+| **Total of Properties** | **Total Cost** | **Total Revenue** | **Profit** |
+| --- | --- | --- | --- |
+| 8354 | $5,374,539,101.00 | $7,524,354,741.40 | $1,612,361,730.29
  
+Otherwise we shall remember that every property can also be sold with a price 10% higher than it was bought without spending with reforms, so the results can
+vary depending on what the business team will do with the property.
  
- 
- 
- 
+## 5 Conclusion
+
+The main goal of this project was to generate some insights for the business, aswell to awnser some questions made by the company. The objective was concluded 
+as it was possibled to extract some relevant information of the data in a way that it would some direction to the next operations for House Rocket.
+
+Also the visualizations will allow the company to keep getting better understandment about their properties and localizations to achieve much more in the future.
 
