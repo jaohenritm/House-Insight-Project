@@ -16,7 +16,7 @@ that the company would spend atleast 10% of the total value of the house in refo
 | --- | --- | --- | --- |
 | 27 | $11,017,318.00| $15,424,245.20 | $3,305,195.39 
 
-Visualization: [HEROKU](https://house-insights-deploy.herokuapp.com/)
+Visualization: (https://house-insights-deploy.herokuapp.com/)
 
 ___
 ## 1. House Rocket
