@@ -8,13 +8,13 @@ a portfolio they should buy.
 The visualization tool used in this project is the Streamlit, which can enable the company to visualize this result graphically,
 use localization maps and tabulate.
 
-The result achieved is a selection of **27 real estates** which corresponds only to 0.12% of the properties in the avaiable portfolio.
+The result achieved is a selection of **8354 real estates** which corresponds to 38,65% of the properties in the avaiable portfolio.
 Assuming that the House Rocket would buy and sell all these properties with a price atleast 40% higher than they bought and estimating
-that the company would spend atleast 10% of the total value of the house in reforms, we should expect a maximum profit of **$3,305,195.39 dollars**.
+that the company would spend atleast 10% of the total value of the house in reforms, we should expect a maximum profit of **$1,612,361,730.29 dollars**.
 
 | **Total of Properties** | **Total Cost** | **Total Revenue** | **Profit** |
 | --- | --- | --- | --- |
-| 27 | $11,017,318.00| $15,424,245.20 | $3,305,195.39 
+| 8354 | $5,374,539,101.00 | $7,524,354,741.40 | $1,612,361,730.29
 
 Visualization: (https://house-insights-deploy.herokuapp.com/)
 
@@ -31,7 +31,7 @@ The greater the difference between the purchase and the reform of the sale value
 Our objective is to analyse which attributes play the main role of affecting the house prices and what the company should do
 with them.
 
-### 1.2 Motivation behing this Project
+### 1.2 Motivation behind this Project
 Considering that:
 
 a) The business team can't take good decisions without analysing the data, and;
@@ -42,3 +42,106 @@ to make a selection with the best real estates opportunities that will provide t
 
 - Which real estates that House Rocket should purchase?
 - Once the house is purchased, when is the best time to sell it and at what price? 
+
+### 1.3 Data Description
+
+The data was extracted from Kaggle where it lists all real estates on portfolio that are avaiable for the company to purchase.
+
+https://www.kaggle.com/harlfoxem/housesalesprediction
+
+In total, there are 21 attributes and 21613 records on this record.
+
+| **Attributes** | **Description** |
+| --- | --- |
+| id | Unique identification of each property |
+| date | Date that the house was put on for sale |
+| price | Price that the house is being sold by it's owner |
+| bedrooms | Number of bedrooms |
+| bathrooms | Number of bathrooms |
+| sqft_living | Measure in square feet of the total interior area of the property |
+| sqft_lot | Measure in square feet of the total area |
+| sqft_above | Measure in square feet of the above area |
+| floors | Number of floors in the property |
+| waterfront | Indicates the presence of water view or not (0 = no and 1 = yes) |
+| view | Indicates the quality of the view (0 = Terrible and 4 = Great) |
+| condition | Indicates the condition of the house (1 = Terrible and 5 = Great) |
+| grade | Indicates the quality of the construction and design of the building (1 = Terrible and 13 = Great) | 
+| sqft_basement | Measure in square feet of the total area of the basement | 
+| yr_built | Year that the house has been built |
+| yr_renovated | Year that the house has been renovated (0 = no renovation) |
+| zipcode | Zipcode of the property | 
+| lat | Latitude |
+| long | Longitude |
+| sqft_living15 | Measure in square feet of the total interior area of the 15 neighboors that are closer |
+| sqft_lot15 | Measure in square feet of the total area of the 15 neighboors that are closer |
+
+In addition to the dataset, it was also used a geojson archive for density maps. The API was extracted from the site ArcGIS Hub.
+
+### 1.4 Business Premises
+- Values that are equal to 0 in yr_renovated are houses that were never reformed.
+- Duplicated values on id column were removed and just remained the more recent one.
+- The condition, number of bathrooms and number of floors were the chosen attributes to determine the recommended properties.
+- The row with bathrooms equals 33 was removed because it was considered an error.
+- Column price is the price which the house will be purchased by House Rocket company.
+
+It was assumed that the selling price would be 40% higher after the renovations are done in the property, and for properties that
+are not gonna be renovated, only 10% using the season in favor.
+
+## 2 Reaching the Solution
+
+### 2.1 Data Exploration
+
+The first step was to collect, treat and explore the data. After that it was possible to verify the necessity of doing some transformations
+in the data like the creation of new attributes to provide some insights, and some conversions (square feet to square meter).
+
+New features:
+- m2_living: Measure in square meter of the interior area of the property
+- m2_lot: Measure in square meter of the total area of the property
+- m2_above: Measure in square meter of the above area
+- m2_basement: Measure in square meter of the basement area
+- month: Which month the house was put on for sale
+- season: Which season the hosue was put on for sale
+- old: Index that measures if the house is older than 1955 or not. (0 = older than 1955, 1 = newer than 1955)
+- recent_reform: Index that says if the house was renovated in the last 5 years. (no or yes)
+
+### 2.2 The Selection
+
+After doing all the filtering and analysis, now it was time to create an app where the company could consult which house to buy, the recommendations,
+ the insights and other informations.
+ 
+**a) Which house should the House Rocket purchase?**
+
+For that we verified which attributes have influence in the price formation and it was detected that there were some interesting things that they could do
+to maximize the profits.
+- Buy properties during winter and fall when they are with a lower cost due to low demand.
+- Buy properties with 2 floor and add a 0.5 level.
+- Buy properties with condition 2 and do some renovations that would make it to a condition 3 property.
+
+**b) Once that the house is purchased, when is the best time to sell it?**
+
+Very simple, the best time to do that is especially during the spring right after the winter ends and the demands returns to get higher.
+ 
+### 2.3 Visualization
+ 
+## 3 Insights
+ 
+To start planning what to do, we started making questions to ourselves of what do we wanna know about the data. So some hypothesis were made and
+the next step was to verify if they were true or not.
+ 
+| **Hypothesis** | **Result** | **Business Language** |
+| --- | --- | --- |
+| The best time to sell Real Estate is during the Summer Season | False | It was verified that the best month to sell real estate is the spring season |
+| Houses with waterview are more expensive. | True | Houses with waterview are in average 212% more expensive |
+| New houses have higher prices than old ones. | False | The age of the house doesn't seem to affect the price, but their condition. |
+| The price of the houses gets higher from year to year. | False | The age of the house doesn't seem to affect the price |
+| For every half floor level added to the house, it's price raises by 20% | False | Every half floor level added to the house, the price raises in average 24% |
+| Recent renovated houses got higher prices. | True | Houses that got recently renovated have in average prices 28% higher than houses that did not. |
+| For every bathroom, the house price raises 10%. | False | Every bathroom added to the property, makes it's price goes 41% higher in average. |
+| Every 1 level in condition, the price raises by 10%. | False |  The price difference between houses with 1 level difference to another in average is 18%. |
+ 
+ 
+ 
+ 
+ 
+ 
+
