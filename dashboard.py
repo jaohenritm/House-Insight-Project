@@ -35,15 +35,7 @@ def treatment_data(data):
     
     # excluding the row with 33 bedrooms
     data = data.drop(index=15870)
-    
-    # removing outliers by using interquartile
-    cols = ['price','m2_lot']
-    Q1 = data[cols].quantile(0.25)
-    Q3 = data[cols].quantile(0.75)
-    IQR = Q3 - Q1
 
-    data = data[~((data[cols] < (Q1 - 1.5 * IQR)) |(data[cols] > (Q3 + 1.5 * IQR))).any(axis=1)]
-    
     return data
 
 def transformation_data(data):
@@ -67,8 +59,9 @@ def transformation_data(data):
     return data
 
 def recommended_properties(data):
-    data = data.loc[((data['bathrooms'] == 0) | (data['floors'] == 1)) &
-                        (data['condition'] == 3)]
+    data = data.loc[((data['bathrooms'] == 2) | (data['bathrooms'] == 3)) &
+                        (data['floors'] == 1) &
+                        (data['condition'] == 2)]
                        
     price_sell = data['price'] * 1.30
 
