@@ -122,7 +122,18 @@ to maximize the profits.
 Very simple, the best time to do that is especially during the spring right after the winter ends and the demands returns to get higher.
  
 ### 2.3 Visualization
- 
+
+One of the main objectives of this project is to let the business team of the House Rocket company do their own analysis. For that we created an dashboard
+with some maps, spreadsheets to facilitate the visualization of the data.
+
+In the dashboard we got the original dataset for doing some consulting if necessary, but also some interesting maps like the density price where we can see
+where are the most expensives places to buy some houses. Other one is the portfolio density where it lists every recommended property on the map where you can
+interact and see also the house price.
+
+![alt text](https://github.com/jaohenritm/Project-House-Rocket/blob/main/density_price.png)
+
+![alt text](https://github.com/jaohenritm/Project-House-Rocket/blob/main/portfolio_density.png)
+
 ## 3 Insights
  
 To start planning what to do, we started making questions to ourselves of what do we wanna know about the data. So some hypothesis were made and
