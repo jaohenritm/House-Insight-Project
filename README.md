@@ -164,7 +164,7 @@ vary depending on what the business team will do with the property.
  
 ## 5 Conclusion
 
-The main goal of this project was to generate some insights for the business, aswell to awnser some questions made by the company. The objective was concluded 
+The main goal of this project was to generate some insights for the business, aswell to answer some questions made by the company. The objective was concluded 
 as it was possibled to extract some relevant information of the data in a way that it would some direction to the next operations for House Rocket.
 
 Also the visualizations will allow the company to keep getting better understandment about their properties and localizations to achieve much more in the future.
