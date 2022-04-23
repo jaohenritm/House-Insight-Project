@@ -1,4 +1,4 @@
-# Insights Project - House Rocket
+# House Rocket Project
 
 ![alt text](https://github.com/jaohenritm/House-Insights-Project/blob/main/istockphoto-109350668-612x612.jpg?raw=true)
 
