@@ -16,7 +16,8 @@ that the company would spend atleast 10% of the total value of the house in refo
 | --- | --- | --- | --- |
 | 8354 | $5,374,539,101.00 | $7,524,354,741.40 | $1,612,361,730.29
 
-Visualization: (https://daxboard-house-rocket.herokuapp.com/)
+## Dashboard:   <a href="https://daxboard-house-rocket.herokuapp.com/" target="_blank"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" target="_blank"></a>
+</div>
 
 
 ## 1. House Rocket
